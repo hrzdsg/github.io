@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026对联年画批发点单系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#c91f1f',
+                        secondary: '#ffebeb',
+                        accent: '#ffd700',
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(201, 31, 31, 0.2);
+            }
+            .radio-custom:checked + label {
+                background-color: #c91f1f;
+                color: white;
+                border-color: #c91f1f;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <header class="bg-primary text-white shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-scroll text-2xl"></i>
+                <h1 class="text-xl md:text-2xl font-bold">2026对联批发</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="hover:text-secondary transition-colors">
+                    <i class="fas fa-shopping-cart text-lg"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-accent text-primary text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-8 px-4">
+        <!-- 商品列表（扩展后共8类） -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- 原有商品1：义乌发泡双鱼款绒布背胶对联 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                <div class="h-48">
+                    <img src="https://picsum.photos/seed/duilian1/400/300" alt="义乌发泡双鱼款绒布背胶对联" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold mb-2">义乌发泡双鱼款绒布背胶对联</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <input type="radio" name="spec1" id="spec1-1" class="radio-custom hidden" value="3" checked>
+                            <label for="spec1-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">五开(86*14cm) ¥3/副</label>
+                            <input type="radio" name="spec1" id="spec1-2" class="radio-custom hidden" value="6.3">
+                            <label for="spec1-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.3米(116*20.5cm) ¥6.3/副</label>
+                            <input type="radio" name="spec1" id="spec1-3" class="radio-custom hidden" value="8.3">
+                            <label for="spec1-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.6米(146*24cm) ¥8.3/副</label>
+                            <input type="radio" name="spec1" id="spec1-4" class="radio-custom hidden" value="11.8">
+                            <label for="spec1-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">2.2米(176*28cm) ¥11.8/副</label>
+                            <input type="radio" name="spec1" id="spec1-5" class="radio-custom hidden" value="14.5">
+                            <label for="spec1-5" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">3米(200*31cm) ¥14.5/副</label>
+                            <input type="radio" name="spec1" id="spec1-6" class="radio-custom hidden" value="19">
+                            <label for="spec1-6" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">4米(230*35cm) ¥19/副</label>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="current-price text-primary font-bold text-lg">¥3.00</span>
+                        <span class="text-gray-500 text-xs">装箱数：240副</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center border rounded-lg">
+                            <button class="decrement-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">-</button>
+                            <input type="number" class="quantity-input w-10 text-center border-x py-1 outline-none" value="0" min="0">
+                            <button class="increment-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">+</button>
+                        </div>
+                        <span class="subtotal text-md font-medium">¥0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 原有商品2：加厚发泡日进斗金款绒布对联 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                <div class="h-48">
+                    <img src="https://picsum.photos/seed/duilian2/400/300" alt="加厚发泡日进斗金款绒布对联" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold mb-2">加厚发泡日进斗金款绒布对联</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <input type="radio" name="spec2" id="spec2-1" class="radio-custom hidden" value="3" checked>
+                            <label for="spec2-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">五开(86*14cm) ¥3/副</label>
+                            <input type="radio" name="spec2" id="spec2-2" class="radio-custom hidden" value="4.2">
+                            <label for="spec2-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.1米(98*17cm) ¥4.2/副</label>
+                            <input type="radio" name="spec2" id="spec2-3" class="radio-custom hidden" value="6.3">
+                            <label for="spec2-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.3米(116*20.5cm) ¥6.3/副</label>
+                            <input type="radio" name="spec2" id="spec2-4" class="radio-custom hidden" value="8.3">
+                            <label for="spec2-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.6米(146*24cm) ¥8.3/副</label>
+                            <input type="radio" name="spec2" id="spec2-5" class="radio-custom hidden" value="11.8">
+                            <label for="spec2-5" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">2.2米(176*28cm) ¥11.8/副</label>
+                            <input type="radio" name="spec2" id="spec2-6" class="radio-custom hidden" value="14.5">
+                            <label for="spec2-6" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">3米(200*31cm) ¥14.5/副</label>
+                            <input type="radio" name="spec2" id="spec2-7" class="radio-custom hidden" value="19">
+                            <label for="spec2-7" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">4米(230*35cm) ¥19/副</label>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="current-price text-primary font-bold text-lg">¥3.00</span>
+                        <span class="text-gray-500 text-xs">装箱数：240副</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center border rounded-lg">
+                            <button class="decrement-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">-</button>
+                            <input type="number" class="quantity-input w-10 text-center border-x py-1 outline-none" value="0" min="0">
+                            <button class="increment-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">+</button>
+                        </div>
+                        <span class="subtotal text-md font-medium">¥0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 原有商品3：新工艺烫红金流水生财款绒布对联 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                <div class="h-48">
+                    <img src="https://picsum.photos/seed/duilian3/400/300" alt="新工艺烫红金流水生财款绒布对联" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold mb-2">新工艺烫红金流水生财款</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <input type="radio" name="spec3" id="spec3-1" class="radio-custom hidden" value="3" checked>
+                            <label for="spec3-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">五开(86*14cm) ¥3/副</label>
+                            <input type="radio" name="spec3" id="spec3-2" class="radio-custom hidden" value="4.2">
+                            <label for="spec3-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.1米(98*17cm) ¥4.2/副</label>
+                            <input type="radio" name="spec3" id="spec3-3" class="radio-custom hidden" value="6.3">
+                            <label for="spec3-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.3米(116*20.5cm) ¥6.3/副</label>
+                            <input type="radio" name="spec3" id="spec3-4" class="radio-custom hidden" value="8.3">
+                            <label for="spec3-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.6米(146*24cm) ¥8.3/副</label>
+                            <input type="radio" name="spec3" id="spec3-5" class="radio-custom hidden" value="11.8">
+                            <label for="spec3-5" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">2.2米(176*28cm) ¥11.8/副</label>
+                            <input type="radio" name="spec3" id="spec3-6" class="radio-custom hidden" value="14.5">
+                            <label for="spec3-6" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">3米(200*31cm) ¥14.5/副</label>
+                            <input type="radio" name="spec3" id="spec3-7" class="radio-custom hidden" value="19">
+                            <label for="spec3-7" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">4米(230*35cm) ¥19/副</label>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="current-price text-primary font-bold text-lg">¥3.00</span>
+                        <span class="text-gray-500 text-xs">装箱数：240副</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center border rounded-lg">
+                            <button class="decrement-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">-</button>
+                            <input type="number" class="quantity-input w-10 text-center border-x py-1 outline-none" value="0" min="0">
+                            <button class="increment-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">+</button>
+                        </div>
+                        <span class="subtotal text-md font-medium">¥0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 原有商品4：彩鱼满背胶绒布对联 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                <div class="h-48">
+                    <img src="https://picsum.photos/seed/duilian4/400/300" alt="彩鱼满背胶绒布对联" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold mb-2">彩鱼满背胶绒布对联</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">选择款式：</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <input type="radio" name="spec4" id="spec4-1" class="radio-custom hidden" value="3" checked>
+                            <label for="spec4-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">五开黑(86*14cm) ¥3/副</label>
+                            <input type="radio" name="spec4" id="spec4-2" class="radio-custom hidden" value="4.6">
+                            <label for="spec4-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.1米金(98*17cm) ¥4.6/副</label>
+                            <input type="radio" name="spec4" id="spec4-3" class="radio-custom hidden" value="6.2">
+                            <label for="spec4-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.3米黑(116*20.5cm) ¥6.2/副</label>
+                            <input type="radio" name="spec4" id="spec4-4" class="radio-custom hidden" value="8.8">
+                            <label for="spec4-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.6米生意词(146*24cm) ¥8.8/副</label>
+                            <input type="radio" name="spec4" id="spec4-5" class="radio-custom hidden" value="16">
+                            <label for="spec4-5" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">3米金(200*31cm) ¥16/副</label>
+                            <input type="radio" name="spec4" id="spec4-6" class="radio-custom hidden" value="21">
+                            <label for="spec4-6" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">4米金(230*35cm) ¥21/副</label>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="current-price text-primary font-bold text-lg">¥3.00</span>
+                        <span class="text-gray-500 text-xs">装箱数：240副</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center border rounded-lg">
+                            <button class="decrement-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">-</button>
+                            <input type="number" class="quantity-input w-10 text-center border-x py-1 outline-none" value="0" min="0">
+                            <button class="increment-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">+</button>
+                        </div>
+                        <span class="subtotal text-md font-medium">¥0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增商品5：新款铜版纸烫金对联 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                <div class="h-48">
+                    <img src="https://picsum.photos/seed/duilian5/400/300" alt="新款铜版纸烫金对联" class="w-full h-full object-cover">
+                    <!-- 实际替换为图片中第一张铜版纸对联图 -->
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold mb-2">新款铜版纸烫金对联</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <input type="radio" name="spec5" id="spec5-1" class="radio-custom hidden" value="0.65" checked>
+                            <label for="spec5-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.1米(90*15cm) ¥0.65/副</label>
+                            <input type="radio" name="spec5" id="spec5-2" class="radio-custom hidden" value="0.95">
+                            <label for="spec5-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.3米(110*18cm) ¥0.95/副</label>
+                            <input type="radio" name="spec5" id="spec5-3" class="radio-custom hidden" value="1.4">
+                            <label for="spec5-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.6米(135*19.5cm) ¥1.4/副</label>
+                            <input type="radio" name="spec5" id="spec5-4" class="radio-custom hidden" value="1.8">
+                            <label for="spec5-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">2.2米(160*24cm) ¥1.8/副</label>
+                            <input type="radio" name="spec5" id="spec5-5" class="radio-custom hidden" value="2.3">
+                            <label for="spec5-5" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">3米(180*26cm) ¥2.3/副</label>
+                            <input type="radio" name="spec5" id="spec5-6" class="radio-custom hidden" value="2.7">
+                            <label for="spec5-6" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">4米(199*28cm) ¥2.7/副</label>
+                            <input type="radio" name="spec5" id="spec5-7" class="radio-custom hidden" value="2.9">
+                            <label for="spec5-7" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">5米(215*30cm) ¥2.9/副</label>
+                            <input type="radio" name="spec5" id="spec5-8" class="radio-custom hidden" value="3.3">
+                            <label for="spec5-8" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">6米(230*32cm) ¥3.3/副</label>
+                            <input type="radio" name="spec5" id="spec5-9" class="radio-custom hidden" value="3.5">
+                            <label for="spec5-9" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">8米(250*34cm) ¥3.5/副</label>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="current-price text-primary font-bold text-lg">¥0.65</span>
+                        <span class="text-gray-500 text-xs">装箱数：800副</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center border rounded-lg">
+                            <button class="decrement-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">-</button>
+                            <input type="number" class="quantity-input w-10 text-center border-x py-1 outline-none" value="0" min="0">
+                            <button class="increment-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">+</button>
+                        </div>
+                        <span class="subtotal text-md font-medium">¥0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增商品6：盒装高档植绒撒粉生意对联 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                <div class="h-48">
+                    <img src="https://picsum.photos/seed/duilian6/400/300" alt="盒装高档植绒撒粉生意对联" class="w-full h-full object-cover">
+                    <!-- 实际替换为图片中第二张植绒撒粉生意对联图 -->
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold mb-2">盒装高档植绒撒粉生意对联</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <input type="radio" name="spec6" id="spec6-1" class="radio-custom hidden" value="3.9" checked>
+                            <label for="spec6-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">2.2米(27*170cm) ¥3.9/副</label>
+                            <input type="radio" name="spec6" id="spec6-2" class="radio-custom hidden" value="4.4">
+                            <label for="spec6-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">3米(30*200cm) ¥4.4/副</label>
+                            <input type="radio" name="spec6" id="spec6-3" class="radio-custom hidden" value="5">
+                            <label for="spec6-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">4米(32*225cm) ¥5/副</label>
+                            <input type="radio" name="spec6" id="spec6-4" class="radio-custom hidden" value="5.7">
+                            <label for="spec6-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">5米(34*250cm) ¥5.7/副</label>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="current-price text-primary font-bold text-lg">¥3.90</span>
+                        <span class="text-gray-500 text-xs">装箱数：160副</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center border rounded-lg">
+                            <button class="decrement-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">-</button>
+                            <input type="number" class="quantity-input w-10 text-center border-x py-1 outline-none" value="0" min="0">
+                            <button class="increment-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">+</button>
+                        </div>
+                        <span class="subtotal text-md font-medium">¥0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增商品7：高档盒装植绒撒粉对联 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                <div class="h-48">
+                    <img src="https://picsum.photos/seed/duilian7/400/300" alt="高档盒装植绒撒粉对联" class="w-full h-full object-cover">
+                    <!-- 实际替换为图片中第三张植绒撒粉对联图 -->
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold mb-2">高档盒装植绒撒粉对联</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <input type="radio" name="spec7" id="spec7-1" class="radio-custom hidden" value="1.6" checked>
+                            <label for="spec7-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.1米(15*90cm) ¥1.6/副</label>
+                            <input type="radio" name="spec7" id="spec7-2" class="radio-custom hidden" value="2">
+                            <label for="spec7-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.3米(18*110cm) ¥2/副</label>
+                            <input type="radio" name="spec7" id="spec7-3" class="radio-custom hidden" value="2.7">
+                            <label for="spec7-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.6米(22*140cm) ¥2.7/副</label>
+                            <input type="radio" name="spec7" id="spec7-4" class="radio-custom hidden" value="3.9">
+                            <label for="spec7-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">2.2米(27*170cm) ¥3.9/副</label>
+                            <input type="radio" name="spec7" id="spec7-5" class="radio-custom hidden" value="4.4">
+                            <label for="spec7-5" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">3米(30*200cm) ¥4.4/副</label>
+                            <input type="radio" name="spec7" id="spec7-6" class="radio-custom hidden" value="5">
+                            <label for="spec7-6" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">4米(32*225cm) ¥5/副</label>
+                            <input type="radio" name="spec7" id="spec7-7" class="radio-custom hidden" value="5.7">
+                            <label for="spec7-7" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">5米(34*250cm) ¥5.7/副</label>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="current-price text-primary font-bold text-lg">¥1.60</span>
+                        <span class="text-gray-500 text-xs">装箱数：480副</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center border rounded-lg">
+                            <button class="decrement-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">-</button>
+                            <input type="number" class="quantity-input w-10 text-center border-x py-1 outline-none" value="0" min="0">
+                            <button class="increment-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">+</button>
+                        </div>
+                        <span class="subtotal text-md font-medium">¥0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增商品8：高档盒装书法对联 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover">
+                <div class="h-48">
+                    <img src="https://picsum.photos/seed/duilian8/400/300" alt="高档盒装书法对联" class="w-full h-full object-cover">
+                    <!-- 实际替换为图片中第四张书法对联图 -->
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold mb-2">高档盒装书法对联</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <input type="radio" name="spec8" id="spec8-1" class="radio-custom hidden" value="1.2" checked>
+                            <label for="spec8-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.1米(15*92cm) ¥1.2/副</label>
+                            <input type="radio" name="spec8" id="spec8-2" class="radio-custom hidden" value="1.7">
+                            <label for="spec8-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.3米(18*113cm) ¥1.7/副</label>
+                            <input type="radio" name="spec8" id="spec8-3" class="radio-custom hidden" value="2.5">
+                            <label for="spec8-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">1.6米(22*140cm) ¥2.5/副</label>
+                            <input type="radio" name="spec8" id="spec8-4" class="radio-custom hidden" value="2.9">
+                            <label for="spec8-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">2.2米(27*170cm) ¥2.9/副</label>
+                            <input type="radio" name="spec8" id="spec8-5" class="radio-custom hidden" value="3.3">
+                            <label for="spec8-5" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">3米(30*200cm) ¥3.3/副</label>
+                            <input type="radio" name="spec8" id="spec8-6" class="radio-custom hidden" value="3.8">
+                            <label for="spec8-6" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">4米(33*225cm) ¥3.8/副</label>
+                            <input type="radio" name="spec8" id="spec8-7" class="radio-custom hidden" value="4.3">
+                            <label for="spec8-7" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors">5米(35*250cm) ¥4.3/副</label>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="current-price text-primary font-bold text-lg">¥1.20</span>
+                        <span class="text-gray-500 text-xs">装箱数：600副</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center border rounded-lg">
+                            <button class="decrement-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">-</button>
+                            <input type="number" class="quantity-input w-10 text-center border-x py-1 outline-none" value="0" min="0">
+                            <button class="increment-btn px-2 py-1 text-lg text-gray-600 hover:text-primary transition-colors">+</button>
+                        </div>
+                        <span class="subtotal text-md font-medium">¥0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 订单汇总 -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 max-w-3xl mx-auto border-t-4 border-primary">
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <i class="fas fa-calculator text-primary mr-2"></i>
+                订单汇总
+            </h2>
+            <div class="space-y-4 mb-6">
+                <div class="flex justify-between pb-3 border-b">
+                    <span class="text-gray-600">已选商品：</span>
+                    <span id="selected-count" class="font-medium">0 件</span>
+                </div>
+                <div class="flex justify-between pb-3 border-b">
+                    <span class="text-gray-600">商品总价：</span>
+                    <span id="total-price" class="text-2xl font-bold text-primary">¥0.00</span>
+                </div>
+            </div>
+            <button class="w-full bg-primary text-white py-4 rounded-xl text-lg font-medium hover:bg-primary/90 transition-colors shadow-lg">
+                <i class="fas fa-file-invoice-dollar mr-2"></i>
+                生成订单
+            </button>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const products = document.querySelectorAll('.bg-white.rounded-2xl.shadow-md');
+            const totalPriceEl = document.getElementById('total-price');
+            const selectedCountEl = document.getElementById('selected-count');
+            const cartCountEl = document.getElementById('cart-count');
+
+            products.forEach(product => {
+                const specRadios = product.querySelectorAll('.radio-custom');
+                const currentPriceEl = product.querySelector('.current-price');
+                const quantityInput = product.querySelector('.quantity-input');
+                const subtotalEl = product.querySelector('.subtotal');
+                const decrementBtn = product.querySelector('.decrement-btn');
+                const incrementBtn = product.querySelector('.increment-btn');
+
+                // 款式切换更新价格
+                specRadios.forEach(radio => {
+                    radio.addEventListener('change', function() {
+                        currentPriceEl.textContent = `¥${parseFloat(this.value).toFixed(2)}`;
+                        updateSubtotal();
+                        updateTotal();
+                    });
+                });
+
+                // 数量减少
+                decrementBtn.addEventListener('click', function() {
+                    let val = parseInt(quantityInput.value);
+                    if (val > 0) {
+                        quantityInput.value = val - 1;
+                        updateSubtotal();
+                        updateTotal();
+                    }
+                });
+
+                // 数量增加
+                incrementBtn.addEventListener('click', function() {
+                    quantityInput.value = parseInt(quantityInput.value) + 1;
+                    updateSubtotal();
+                    updateTotal();
+                });
+
+                // 手动输入数量
+                quantityInput.addEventListener('input', function() {
+                    let val = parseInt(this.value);
+                    this.value = isNaN(val) || val < 0 ? 0 : val;
+                    updateSubtotal();
+                    updateTotal();
+                });
+
+                // 更新单个商品小计
+                function updateSubtotal() {
+                    const price = parseFloat(currentPriceEl.textContent.replace('¥', ''));
+                    const quantity = parseInt(quantityInput.value);
+                    subtotalEl.textContent = `¥${(price * quantity).toFixed(2)}`;
+                }
+            });
+
+            // 更新订单总价和数量
+            function updateTotal() {
+                let total = 0;
+                let count = 0;
+                products.forEach(product => {
+                    const subtotal = parseFloat(product.querySelector('.subtotal').textContent.replace('¥', ''));
+                    const quantity = parseInt(product.querySelector('.quantity-input').value);
+                    total += subtotal;
+                    count += quantity;
+                });
+                totalPriceEl.textContent = `¥${total.toFixed(2)}`;
+                selectedCountEl.textContent = `${count} 件`;
+                cartCountEl.textContent = count;
+            }
+        });
+    </script>
+</body>
+</html>
